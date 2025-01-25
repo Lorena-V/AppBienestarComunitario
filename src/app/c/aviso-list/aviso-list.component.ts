@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common'; //para usar ngForm
 import { Aviso } from 'src/app/entidad/Aviso';
 import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, 
-  IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
+  IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel,
+ } from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
 import { trashOutline, add } from 'ionicons/icons';

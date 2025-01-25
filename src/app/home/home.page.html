@@ -1,9 +1,14 @@
 
-  <!-- <div id="container"> -->
-    <app-aviso-list 
+<ng-container *ngIf="!mostrandoForm; else formulario">
+  <app-aviso-list 
       [avisos]= "agenda" 
-      (onDelete)="deleteAviso($event)"/>
-  
-    <app-aviso-form>
-  <!-- </div> -->
+      (onDelete)="deleteAviso($event)"
+      (onAddAviso)="mostrarFormulario()"/>
+</ng-container>
 
+<ng-template #formulario>
+  <app-aviso-form 
+    (onClose)="cerrarFormulario()"
+    (onSave)="guardarAviso($event)"/>
+</ng-template>
+ 

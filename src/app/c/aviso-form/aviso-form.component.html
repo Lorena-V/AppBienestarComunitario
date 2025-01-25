@@ -1,15 +1,24 @@
 <ion-header [translucent]="true" slot="start">
   <ion-toolbar>
+    <ion-buttons slot="start" (click)="cerrarFormulario()" >
+      <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+    </ion-buttons>
     <ion-title>
       Publicación
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<form action="">
+<form (ngSubmit)="guardarAviso()">
   <ion-item lines="none" >
-    <ion-input label="Título" labelPlacement="stacked" name="titulo" required
-    placeholder="Mascota perdida" ></ion-input>
+    <ion-input 
+      [(ngModel)]="aviso.titulo" 
+      name="titulo" 
+      label="Título" 
+      labelPlacement="stacked" 
+      required
+      placeholder="Mascota perdida">
+    </ion-input>
   </ion-item>
 
   <ion-item lines="none">
@@ -24,11 +33,12 @@
  
   <ion-item lines="none">
     <ion-input 
-          label="Descripción" 
-          labelPlacement="stacked" 
-          name="descripcion" 
-          required
-          placeholder="Perrito salchicha perdido en esquina Manuel Montt con los Olivos...">
+      [(ngModel)]="aviso.descripcion" 
+      name="descripcion" 
+      label="Descripción" 
+      labelPlacement="stacked" 
+      required
+      placeholder="Perrito salchicha perdido en esquina Manuel Montt con los Olivos...">
     </ion-input>
   </ion-item>
 
