@@ -17,6 +17,7 @@
 
     <ion-label > {{ aviso.fecha | date:'short' }} </ion-label>
 
+    <!-- boton de eliminar -->
       <ion-button size="small" (click)="clickEliminar(aviso)">
         <ion-icon name="trash-outline" slot="icon-only" ios="trash-outline" md="trash-outline"></ion-icon>
       </ion-button>
@@ -31,6 +32,19 @@
     </ion-fab-button>
   </ion-fab>
 </div>
+
+<ion-modal [isOpen]="isModalPriceOpen">
+  <ng-template>
+    <ion-header>
+      <ion-title>Haz eliminado este aviso</ion-title>
+      <ion-buttons >
+        <ion-button (click)="setModalPriceOpen(false)" >CERRAR</ion-button>
+      </ion-buttons> 
+    </ion-header>
+  </ng-template>
+</ion-modal>
+
+
 
 
 
