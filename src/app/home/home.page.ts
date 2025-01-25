@@ -17,4 +17,8 @@ export class HomePage {
   ]
 
   constructor() {}
+  
+  deleteAviso(aviso:Aviso) {
+    console.log("Eliminando el contacto de :" + aviso.titulo)
+  }
 }

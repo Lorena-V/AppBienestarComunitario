@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
 import { CommonModule } from '@angular/common'; //para usar ngForm
 import { Aviso } from 'src/app/entidad/Aviso';
 
@@ -15,8 +15,14 @@ export class AvisoListComponent  implements OnInit {
 
   @Input() avisos: Aviso[] = [] // arreglo de avisos que empieza con un array vacío
 
+  @Output() onDelete = new EventEmitter<Aviso>()
+
   constructor() { }
 
   ngOnInit() {}
+
+  clickEliminar(a:Aviso) {
+    this.onDelete.emit(a);
+  }
 
 }
