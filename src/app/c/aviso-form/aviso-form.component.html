@@ -9,17 +9,24 @@
   </ion-toolbar>
 </ion-header>
 
-<form (ngSubmit)="guardarAviso()">
+<form #avisoForm="ngForm" (ngSubmit)="guardarAviso()">
   <ion-item lines="none" >
     <ion-input 
       [(ngModel)]="aviso.titulo" 
       name="titulo" 
       label="Título" 
       labelPlacement="stacked" 
-      required
+      required = "required"
+      minlength = "5"
+      #tituloInput="ngModel"
       placeholder="Mascota perdida">
     </ion-input>
   </ion-item>
+  <!-- Mensaje de validación -->
+  <ion-note color="danger"
+            class="ion-margin-horizontal"
+            [hidden]="tituloInput.valid || tituloInput.pristine">
+            El título debe tener más de 5 caracteres</ion-note>
 
   <ion-item lines="none">
     <ion-button size="small">
@@ -37,15 +44,24 @@
       name="descripcion" 
       label="Descripción" 
       labelPlacement="stacked" 
-      required
+      required = "required"
+      minlength = "20"
+      #descripcionInput="ngModel"
       placeholder="Perrito salchicha perdido en esquina Manuel Montt con los Olivos...">
     </ion-input>
   </ion-item>
+   <!-- Mensaje de validación -->
+  <ion-note color="danger"
+            class="ion-margin-horizontal"
+            [hidden]="descripcionInput.valid || descripcionInput.pristine">
+            La descripción debe tener más de 20 caracteres</ion-note>
 
   <ion-item lines="none">
-    <ion-button type="submit" >GUARDAR</ion-button>
+    <ion-button type="submit" 
+                [disabled]="!avisoForm.valid">
+                GUARDAR
+    </ion-button>
   </ion-item>
-
 </form>
 <!-- <ion-header>
   <ion-toolbar>

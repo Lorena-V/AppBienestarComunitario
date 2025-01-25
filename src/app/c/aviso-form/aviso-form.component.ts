@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Aviso } from 'src/app/entidad/Aviso';
 import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, 
   IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel,
-  IonInput, IonButtons, IonPopover} from '@ionic/angular/standalone';
+  IonInput, IonButtons, IonPopover, IonNote } from '@ionic/angular/standalone';
   import { addIcons } from 'ionicons'
   import { cameraOutline, arrowBackOutline } from 'ionicons/icons'
 
@@ -15,7 +15,7 @@ import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton,
   templateUrl: './aviso-form.component.html',
   styleUrls: ['./aviso-form.component.scss'],
   imports: [ IonHeader, IonToolbar, IonTitle, IonItem, IonInput, IonThumbnail, 
-             IonIcon, IonButton, IonButtons, CommonModule, FormsModule],
+             IonIcon, IonButton, IonButtons, CommonModule, FormsModule, IonNote],
   standalone: true,
 })
 
