@@ -41,12 +41,12 @@ export class AvisoFormComponent  implements OnInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64
-    })
- 
-    if ( image.base64String != null || image.base64String != undefined ) {
-      this.fotos.push(image.base64String)
-    }  
-    // persistir el string en memoria, BD o similar
+    });
+  
+    // Validar si la imagen contiene datos en Base64 antes de agregarla
+    if (image.base64String) {
+      this.fotos.push(`data:image/jpeg;base64,${image.base64String}`);
+    }
   }
 
   ngOnInit() {}

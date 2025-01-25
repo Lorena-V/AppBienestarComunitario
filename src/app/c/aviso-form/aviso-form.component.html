@@ -28,16 +28,33 @@
             class="ion-margin-horizontal"
             [hidden]="tituloInput.valid || tituloInput.pristine">
             El título debe tener más de 5 caracteres</ion-note>
-  <ion-item lines="none">
-    <ion-button size="small">
-      <ion-icon slot="start" name="camera-outline"></ion-icon>
+
+  <!-- camara -->
+   <!-- <div>
+    <ion-button size="small"
+                (click)="tomarFoto()">
+      <ion-icon slot="start" 
+                name="camera-outline">
+      </ion-icon>
         FOTOGRAFÍA
-      </ion-button>
-
-      <ion-thumbnail slot="end">
-        <ion-img />
+    </ion-button>
+    <ion-thumbnail *ngFor="let f of fotos">
+      <ion-img [src] = "'data:image/jpeg;base64' +f "/>
     </ion-thumbnail>
+   </div> -->
 
+  <ion-item lines="none">
+    <ion-button size="small"
+                (click)="tomarFoto()">
+      <ion-icon slot="start" 
+                name="camera-outline">
+      </ion-icon>
+        FOTOGRAFÍA
+    </ion-button>
+  
+    <ion-thumbnail *ngFor="let f of fotos">
+        <ion-img [src] = "'data:image/jpeg;base64' +f "/>
+    </ion-thumbnail>
   </ion-item>
  
   <ion-item lines="none">
@@ -52,6 +69,7 @@
       placeholder="Perrito salchicha perdido en esquina Manuel Montt con los Olivos...">
     </ion-input>
   </ion-item>
+  
    <!-- Mensaje de validación -->
   <ion-note color="danger"
             class="ion-margin-horizontal"
