@@ -22,14 +22,14 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.cargarInicial();
+    //this.cargarInicial();
   }
 
-  async cargarInicial() {
-    const a:Aviso = { titulo: "Este es un titulo", descripcion: "esta es una descripción", imagen: "esta es la imagen"}
-    await this.servicio.guardar(a)
-    this.agenda = await this.servicio.recuperarAvisos();
-  }
+  // async cargarInicial() {
+  //   const a:Aviso = { titulo: "Este es un titulo", descripcion: "esta es una descripción", imagen: "esta es la imagen"}
+  //   await this.servicio.guardar(a)
+  //   this.agenda = await this.servicio.recuperarAvisos();
+  // }
   
   async deleteAviso(aviso:Aviso) {
     console.log("Eliminando el contacto de :" + aviso.titulo)
