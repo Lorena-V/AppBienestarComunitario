@@ -3,5 +3,6 @@ export interface Aviso {
     titulo: String
     descripcion: String
     imagen: String
+    fecha: string
 }
   

@@ -24,7 +24,10 @@ export class AvisoFormComponent  implements OnInit {
   @Output() onClose = new EventEmitter<void>(); // Evento para cerrar el formulario
   @Output() onSave = new EventEmitter<Aviso>(); // Evento para guardar el aviso
 
-  aviso: Aviso = { titulo: '', descripcion: '', imagen: '' }; // Modelo del aviso
+  aviso: Aviso = { titulo: '', 
+                  descripcion: '', 
+                  imagen: '',
+                  fecha: new Date().toISOString() }; // Modelo del aviso
 
   constructor() { 
     addIcons({arrowBackOutline,cameraOutline});
@@ -39,6 +42,8 @@ export class AvisoFormComponent  implements OnInit {
   guardarAviso() {
     // Emitir el aviso al componente padre
     this.onSave.emit(this.aviso);
+    //this.onGuardar.emit(this.aviso);
+    this.cerrarFormulario
 
     this.cerrarFormulario();
   // cerrarFormulario() {

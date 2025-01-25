@@ -12,11 +12,15 @@
       <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg"
         alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
     </ion-thumbnail>
+
     <ion-label >{{ aviso.titulo }}</ion-label>
-    <ion-label > date </ion-label>
+
+    <ion-label > {{ aviso.fecha | date:'short' }} </ion-label>
+
       <ion-button size="small" (click)="clickEliminar(aviso)">
         <ion-icon name="trash-outline" slot="icon-only" ios="trash-outline" md="trash-outline"></ion-icon>
       </ion-button>
+
   </ion-item>  
 </ion-list>
 
@@ -36,7 +40,7 @@
     justify-content: end;
     padding: 10px;
 } -->
-    
+
 <!-- <ion-fab-button [routerLink]="['/home']"></ion-fab-button> -->
 <!-- <div class="addContainer">
   <ion-fab>
