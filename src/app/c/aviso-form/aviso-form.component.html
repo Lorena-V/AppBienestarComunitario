@@ -22,20 +22,22 @@
       placeholder="Mascota perdida">
     </ion-input>
   </ion-item>
+
   <!-- Mensaje de validación -->
   <ion-note color="danger"
             class="ion-margin-horizontal"
             [hidden]="tituloInput.valid || tituloInput.pristine">
             El título debe tener más de 5 caracteres</ion-note>
-
   <ion-item lines="none">
     <ion-button size="small">
       <ion-icon slot="start" name="camera-outline"></ion-icon>
         FOTOGRAFÍA
       </ion-button>
+
       <ion-thumbnail slot="end">
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        <ion-img />
     </ion-thumbnail>
+
   </ion-item>
  
   <ion-item lines="none">

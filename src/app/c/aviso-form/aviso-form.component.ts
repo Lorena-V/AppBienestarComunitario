@@ -1,22 +1,22 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common'; //para usar ngForm
 import { FormsModule } from '@angular/forms';
+import { Camera, CameraResultType } from '@capacitor/camera';
 //import { NgModule } from '@angular/core';
 import { Aviso } from 'src/app/entidad/Aviso';
-import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, 
-  IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel,
-  IonInput, IonButtons, IonPopover, IonNote } from '@ionic/angular/standalone';
-  import { addIcons } from 'ionicons'
-  import { cameraOutline, arrowBackOutline } from 'ionicons/icons'
-
+import { IonicModule } from '@ionic/angular';
+// import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, 
+//   IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel,
+//   IonInput, IonButtons, IonPopover, IonNote } from '@ionic/angular/standalone';
+  import { addIcons } from 'ionicons';
+  import { cameraOutline, arrowBackOutline, camera } from 'ionicons/icons'
 
 @Component({
   selector: 'app-aviso-form',
   templateUrl: './aviso-form.component.html',
   styleUrls: ['./aviso-form.component.scss'],
-  imports: [ IonHeader, IonToolbar, IonTitle, IonItem, IonInput, IonThumbnail, 
-             IonIcon, IonButton, IonButtons, CommonModule, FormsModule, IonNote, 
-             ],
+  imports: [ IonicModule, CommonModule, FormsModule ],
+             
   standalone: true,
 })
 
@@ -30,8 +30,23 @@ export class AvisoFormComponent  implements OnInit {
                   imagen: '',
                   fecha: new Date().toISOString() }; // Modelo del aviso
 
+  fotos:string[] = []
+
   constructor() { 
     addIcons({arrowBackOutline,cameraOutline});
+  }
+
+  async tomarFoto() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64
+    })
+ 
+    if ( image.base64String != null || image.base64String != undefined ) {
+      this.fotos.push(image.base64String)
+    }  
+    // persistir el string en memoria, BD o similar
   }
 
   ngOnInit() {}

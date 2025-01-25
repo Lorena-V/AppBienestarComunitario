@@ -9,8 +9,11 @@
 <ion-list slot="start">
   <ion-item *ngFor="let aviso of avisos">
     <ion-thumbnail slot="start">
+
       <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg"
-        alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+        alt="The Wisconsin State Capitol building in Madison, WI at night">
+      </ion-img>
+
     </ion-thumbnail>
 
     <ion-label >{{ aviso.titulo }}</ion-label>
@@ -57,49 +60,3 @@
     </ng-template>
   </ion-modal>
 </div>
-
-
-
-
-
-
-
-<!-- CSS para pocición del boton 
-.addContainer {
-    display: flex;
-    justify-content: end;
-    padding: 10px;
-} -->
-
-<!-- <ion-fab-button [routerLink]="['/home']"></ion-fab-button> -->
-<!-- <div class="addContainer">
-  <ion-fab>
-    <ion-fab-button [routerLink]="['/home']">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</div> -->
-
-<!-- <ion-list>
-  <ion-item *ngFor="let p of publicaciones">
-    <ion-thumbnail slot="start">
-      <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg"
-        alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
-    </ion-thumbnail>
-    <ion-label>{{ p.titulo }}</ion-label>
-    <p>Date</p>
-    <ion-button size="small">
-      <ion-icon name="trash-outline" slot="icon-only" md="trash-outline"></ion-icon>
-    </ion-button>
-  </ion-item>
-</ion-list> -->
-
-<!-- <ul>
-  <li *ngFor="let aviso of avisos" > 
-    {{ aviso.titulo }} 
-   
-    <ion-button size="small" (click)="clickEliminar(aviso)">
-      <ion-icon name="trash-outline" slot="icon-only" ios="trash-outline" md="trash-outline"></ion-icon>
-    </ion-button>
-  </li>
-</ul> -->
