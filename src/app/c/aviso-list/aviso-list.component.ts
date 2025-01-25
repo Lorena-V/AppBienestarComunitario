@@ -1,12 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common'; //para usar ngForm
 import { Aviso } from 'src/app/entidad/Aviso';
+import { IonButton, IonIcon } from '@ionic/angular/standalone';
+
+import { addIcons } from 'ionicons';
+import { trashOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-aviso-list',
   templateUrl: './aviso-list.component.html',
   styleUrls: ['./aviso-list.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, IonIcon, IonButton ],
   standalone: true,
 })
 
@@ -17,7 +21,10 @@ export class AvisoListComponent  implements OnInit {
 
   @Output() onDelete = new EventEmitter<Aviso>()
 
-  constructor() { }
+  constructor() {
+      addIcons({trashOutline});
+    
+   }
 
   ngOnInit() {}
 

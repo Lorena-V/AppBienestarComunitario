@@ -2,6 +2,9 @@
 <ul>
   <li *ngFor="let aviso of avisos" > 
     {{ aviso.titulo }} 
-    <button (click)="clickEliminar(aviso)">Eliminar</button>
+    <!-- <a (click)="clickEliminar(aviso)">Eliminar</a> -->
+    <ion-button size="small" (click)="clickEliminar(aviso)">
+      <ion-icon name="trash-outline" slot="icon-only" ios="trash-outline" md="trash-outline"></ion-icon>
+    </ion-button>
   </li>
 </ul>
