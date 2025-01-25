@@ -25,5 +25,16 @@ export class AvisosRepositoryService {
 
   buscarAviso(titulo:string) {}
 
-  eliminar(a:Aviso) {} // cargar la lista, buscar el elemento a borrar, llamar al metodo que elimina y hacer el mismo procedimiento
+  // cargar la lista, buscar el elemento a borrar, llamar al metodo que elimina y hacer el mismo procedimiento
+  async eliminar(a:Aviso): Promise<void> {
+    
+    //Recupera la lista
+    const listado: Aviso[] = await this.recuperarAvisos();
+
+    //Filtrar lista para expluir el aviso a eliminar
+    const nuevaLista = listado.filter(aviso => aviso.titulo !==a.titulo);
+
+    //Guardar lista actualizada
+    await Preferences.set({ key: this.clave, value: JSON.stringify(nuevaLista)});
+  } 
 }

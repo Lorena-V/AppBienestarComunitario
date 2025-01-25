@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { AvisoListComponent } from '../c/aviso-list/aviso-list.component';
 import { Aviso } from '../entidad/Aviso';
+import { AvisosRepositoryService } from '../s/avisos-repository.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,25 @@ import { Aviso } from '../entidad/Aviso';
 })
 export class HomePage {
 
-  agenda:Aviso[] = [
-    {titulo: "Este es un titulo", descripcion: "Esta es una descripcion", imagen: "imagen"},
-    {titulo: "Este es segundo titulo", descripcion: "Esta es segunda descripcion", imagen: "imagen2"}
-  ]
+  agenda:Aviso[] = []
 
-  constructor() {}
+  constructor(private servicio:AvisosRepositoryService) {  // inyeccion de dependencias
+  }
+
+  ngOnInit() {
+    this.cargarInicial();
+  }
+
+  async cargarInicial() {
+    const a:Aviso = { titulo: "Este es un titulo", descripcion: "esta es una descripción", imagen: "esta es la imagen"}
+    await this.servicio.guardar(a)
+    this.agenda = await this.servicio.recuperarAvisos();
+  }
   
-  deleteAviso(aviso:Aviso) {
+  async deleteAviso(aviso:Aviso) {
     console.log("Eliminando el contacto de :" + aviso.titulo)
+    await this.servicio.eliminar(aviso) //llama al metodo que elimina avisos
+    this.agenda = await this.servicio.recuperarAvisos() // Recarga la lista actual
+    
   }
 }
