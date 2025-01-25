@@ -33,16 +33,32 @@
   </ion-fab>
 </div>
 
-<ion-modal [isOpen]="isModalPriceOpen">
-  <ng-template>
-    <ion-header>
-      <ion-title>Haz eliminado este aviso</ion-title>
-      <ion-buttons >
-        <ion-button (click)="setModalPriceOpen(false)" >CERRAR</ion-button>
-      </ion-buttons> 
-    </ion-header>
-  </ng-template>
-</ion-modal>
+<!-- Modal -->
+<div class="ion-padding">
+  <ion-modal [isOpen]="isModalPriceOpen" 
+              trigger="open-modal" 
+              expand="block"
+              size="small">
+    <ng-template>
+      <ion-header>
+        <ion-title>AVISO</ion-title> 
+      </ion-header>
+      <div class="ion-padding" 
+      slot="start">
+        <p> Haz eliminado esta publicación!</p>
+        <ion-buttons slot="start">
+          <ion-button (click)="setModalPriceOpen(false)" 
+          slot="start"
+          expand="block"
+                      >CERRAR
+          </ion-button>
+        </ion-buttons>
+      </div> 
+    </ng-template>
+  </ion-modal>
+</div>
+
+
 
 
 

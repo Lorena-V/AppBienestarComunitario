@@ -15,7 +15,8 @@ import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton,
   templateUrl: './aviso-form.component.html',
   styleUrls: ['./aviso-form.component.scss'],
   imports: [ IonHeader, IonToolbar, IonTitle, IonItem, IonInput, IonThumbnail, 
-             IonIcon, IonButton, IonButtons, CommonModule, FormsModule, IonNote],
+             IonIcon, IonButton, IonButtons, CommonModule, FormsModule, IonNote, 
+             ],
   standalone: true,
 })
 
