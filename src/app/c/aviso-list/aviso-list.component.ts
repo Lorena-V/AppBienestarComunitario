@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common'; //para usar ngForm
 import { Aviso } from 'src/app/entidad/Aviso';
-import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { IonButton, IonIcon, IonThumbnail, IonImg, IonFab, IonFabButton, 
+  IonHeader, IonContent ,IonToolbar, IonTitle, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
 import { trashOutline, add } from 'ionicons/icons';
@@ -11,7 +12,8 @@ import { trashOutline, add } from 'ionicons/icons';
   templateUrl: './aviso-list.component.html',
   styleUrls: ['./aviso-list.component.scss'],
   imports: [CommonModule, IonIcon, IonButton, IonList, IonItem, IonLabel, 
-    IonThumbnail, IonImg, IonFab, IonFabButton ],
+    IonThumbnail, IonImg, IonFab, IonFabButton, IonHeader, IonToolbar,
+    IonTitle],
   standalone: true,
 })
 
@@ -21,6 +23,7 @@ export class AvisoListComponent  implements OnInit {
   @Input() avisos: Aviso[] = [] // arreglo de avisos que empieza con un array vacío
 
   @Output() onDelete = new EventEmitter<Aviso>()
+  @Output() onAddAviso = new EventEmitter<void>()
 
   constructor() {
       addIcons({trashOutline,add});
@@ -31,6 +34,11 @@ export class AvisoListComponent  implements OnInit {
 
   clickEliminar(a:Aviso) {
     this.onDelete.emit(a);
+  }
+
+  clickAgregar() {
+    this.onAddAviso.emit();
+    console.log("ir al form" )
   }
 
 }

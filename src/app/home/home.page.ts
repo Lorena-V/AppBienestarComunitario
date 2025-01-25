@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { AvisoListComponent } from '../c/aviso-list/aviso-list.component';
+import { AvisoFormComponent } from '../c/aviso-form/aviso-form.component';
 import { Aviso } from '../entidad/Aviso';
 import { AvisosRepositoryService } from '../s/avisos-repository.service';
 
@@ -8,11 +8,13 @@ import { AvisosRepositoryService } from '../s/avisos-repository.service';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, AvisoListComponent ],
+  imports: [AvisoListComponent, AvisoFormComponent ],
+  standalone: true,
 })
 export class HomePage {
 
   agenda:Aviso[] = []
+  mostrandoForm: boolean = false // Controla si se muestra el formulario o la lista
 
   constructor(private servicio:AvisosRepositoryService) {  // inyeccion de dependencias
   }
@@ -31,6 +33,7 @@ export class HomePage {
     console.log("Eliminando el contacto de :" + aviso.titulo)
     await this.servicio.eliminar(aviso) //llama al metodo que elimina avisos
     this.agenda = await this.servicio.recuperarAvisos() // Recarga la lista actual
-    
   }
+
+
 }

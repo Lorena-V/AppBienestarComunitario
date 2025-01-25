@@ -1,3 +1,11 @@
+<ion-header [translucent]="true" slot="start">
+  <ion-toolbar>
+    <ion-title>
+      Publicaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-list slot="start">
   <ion-item *ngFor="let aviso of avisos">
     <ion-thumbnail slot="start">
@@ -14,12 +22,22 @@
 
 <div class="addContainer">
   <ion-fab >
-    <ion-fab-button>
+    <ion-fab-button (click)="clickAgregar()" >
       <ion-icon name="add" ></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </div>
 
+
+
+<!-- CSS para pocición del boton 
+.addContainer {
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+} -->
+    
+<!-- <ion-fab-button [routerLink]="['/home']"></ion-fab-button> -->
 <!-- <div class="addContainer">
   <ion-fab>
     <ion-fab-button [routerLink]="['/home']">
